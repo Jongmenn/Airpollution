@@ -1,8 +1,9 @@
-#2019년 확정자료 
-setwd("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019")
+#2019년 확정자료 -새로 받은 자료 2021-08-26
+setwd("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new")
 
-library(readxl)   ;library(sqldf)
-library(lubridate);library(ggplot2) ;library(gridExtra)
+pacman::p_load(readxl,sqldf,lubridate,ggplot2,gridExtra)
+
+
 list.files()
 air_q1  <-read_excel("2019년 1월.xlsx",sheet=1)  ; air_q1<- as.data.frame(air_q1)
 air_q2  <-read_excel("2019년 2월.xlsx",sheet=1)  ; air_q2<- as.data.frame(air_q2)
@@ -13,14 +14,14 @@ air_q6  <-read_excel("2019년 6월.xlsx",sheet=1)  ; air_q6<- as.data.frame(air_
 air_q7  <-read_excel("2019년 7월.xlsx",sheet=1)  ; air_q7<- as.data.frame(air_q7)
 air_q8  <-read_excel("2019년 8월.xlsx",sheet=1)  ; air_q8<- as.data.frame(air_q8)
 air_q9  <-read_excel("2019년 9월.xlsx",sheet=1)  ; air_q9<- as.data.frame(air_q9)
-air_q10 <-read_excel("2019년 10월.xlsx",sheet=1)  ; air_q10<- as.data.frame(air_q10)
-air_q11 <-read_excel("2019년 11월.xlsx",sheet=1)  ; air_q11<- as.data.frame(air_q11)
-air_q12 <-read_excel("2019년 12월.xlsx",sheet=1)  ; air_q12<- as.data.frame(air_q12)
+air_q10 <-read_excel("2019년 10월.xlsx",sheet=1) ; air_q10<- as.data.frame(air_q10)
+air_q11 <-read_excel("2019년 11월.xlsx",sheet=1) ; air_q11<- as.data.frame(air_q11)
+air_q12 <-read_excel("2019년 12월.xlsx",sheet=1) ; air_q12<- as.data.frame(air_q12)
 
 #data merge 
 air2019<-rbind(air_q1,air_q2,air_q3,air_q4,air_q5,air_q6,air_q7,air_q8,air_q9,air_q10,air_q11,air_q12)
-air2019 <- air2019  %>%  filter(망=="도시대기") %>% select(-망)
-names(air_2019)
+air2019 <- air2019  %>%  filter(망=="도시대기") %>% dplyr:: select(-망)
+names(air2019)
 
 
 #colume 명 변경 
@@ -32,27 +33,18 @@ air2019$yymmdd=substr(air2019$datetime,1,8) #년월일
 #하루 기준 75% 이상 측정만 추출하기 위한 merge key 
 air2019$mkey=paste0(air2019$code,"-",air2019$yymmdd)
 
-#대기오염측정망 제원 데이터 [도시대기측정망 자료] 불러오기
-setwd("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터")
-code<-read_excel("도시대기측정망_제원.xlsx",sheet='전체')
-cd<-code$code
-#도시대기측정망에 해당하는 측정소 코드만 추출
-#원시자료에는 도시대기측정망 외에 측정망 포함되어있음
-#중간에 생긴 측정망들이 존재하니.. 전체이용 
 
-air2019.r<-sqldf("select * from air2019 where codename in (select yr2019 from code)")
 
-# air2019.r<-subset(air2019,code %in% yr2019)
-
-air2019.r$yymmdd=ymd(air2019.r$yymmdd) # 날짜형식으로변경 
+air2019$yymmdd=ymd(air2019$yymmdd) # 날짜형식으로변경 
 daily=data.frame(yymmdd=seq(as.Date("2019-01-01"),as.Date("2019-12-31"),by="day"))
 
 #--------------------------------------------------------------------------------#
 #측정소별 AP 산출 
 ap_list=NULL
-key<-unique(air2019.r$code)
+
+key<-unique(air2019$codename)
 for(i in 1:length(key)) {
-  dat<-subset(air2019.r,code==key[i])
+  dat<-subset(air2019,codename==key[i])
   a<-sqldf("select mkey,count(SO2) as so2_count,count(CO) as co_count, count(O3) as o3_count,
            count(no2) as no2_count,count(pm10) as pm10_count,count(pm25) as pm25_count from dat group by yymmdd ")
   dat2<-merge(dat,a,by="mkey")
@@ -119,7 +111,7 @@ names(total_ap)[1]="date"
 
 #--------------------------------------------------------------------------------#
 #데이터 내보내기 
-setwd("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019")
+setwd("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new")
 write.csv(ap_dat,file="ap_dat.csv",row.names=F,na="")
 write.csv(total_ap,file="total_ap.csv",row.names=F,na="")
 write.csv(sido_ap_dat,file="sido_ap_dat.csv",row.names=F,na="")
