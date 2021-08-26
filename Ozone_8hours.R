@@ -3,9 +3,6 @@
 #library
 pacman::p_load("readxl","sqldf","dplyr","lubridate")
 
-
-#--------------------------------------------------------------------------------------------------#
-#--------------------------------------------------------------------------------------------------#
 dat06_01<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2006\\2006년01분기.xlsx")
 dat06_02<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2006\\2006년02분기.xlsx")
 dat06_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2006\\2006년03분기.xlsx")
@@ -68,34 +65,34 @@ dat17_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확
 
 dat18_01<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2018\\2018년 1분기.xlsx")
 dat18_02<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2018\\2018년 2분기.xlsx")
-dat18_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2018\\2018년 3분기.xlsx") %>% filter(망=="도시대기") %>% select(-망)
-dat18_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2018\\2018년 4분기.xlsx") %>% filter(망=="도시대기") %>% select(-망)
+dat18_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2018\\2018년 3분기.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat18_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2018\\2018년 4분기.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망)
 
-dat19_01<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 1월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_02<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 2월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 3월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 4월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)  
-dat19_05<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 5월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_06<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 6월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_07<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 7월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_08<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 8월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_09<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 9월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat19_10<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 10월.xlsx") %>% filter(망=="도시대기") %>% select(-망) 
-dat19_11<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 11월.xlsx") %>% filter(망=="도시대기") %>% select(-망)
-dat19_12<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019\\2019년 12월.xlsx") %>% filter(망=="도시대기") %>% select(-망)
+dat19_01<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 1월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_02<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 2월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 3월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 4월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)  
+dat19_05<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 5월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_06<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 6월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_07<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 7월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_08<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 8월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_09<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 9월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_10<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 10월.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망) 
+dat19_11<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 11월.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat19_12<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2019_new\\2019년 12월.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망)
 
-dat20_01<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 1월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_02<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 2월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 3월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 4월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_05<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 5월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_06<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 6월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_07<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 7월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_08<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 8월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_09<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 9월.xlsx")  %>% filter(망=="도시대기") %>% select(-망)
-dat20_10<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 10월.xlsx") %>% filter(망=="도시대기") %>% select(-망) 
-dat20_11<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 11월.xlsx") %>% filter(망=="도시대기") %>% select(-망)
-dat20_12<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020\\2020년 12월.xlsx") %>% filter(망=="도시대기") %>% select(-망)
+dat20_01<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 1월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_02<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 2월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_03<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 3월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_04<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 4월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_05<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 5월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_06<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 6월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_07<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 7월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_08<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 8월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_09<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 9월.xlsx")  %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_10<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 10월.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망) 
+dat20_11<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 11월.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망)
+dat20_12<-read_excel("D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\2020_new\\2020년 12월.xlsx") %>% filter(망=="도시대기") %>% dplyr:: select(-망)
 
 dat06<-bind_rows(dat06_01,dat06_02,dat06_03,dat06_04);rm(dat06_01);rm(dat06_02);rm(dat06_03);rm(dat06_04)
 dat07<-bind_rows(dat07_01,dat07_02,dat07_03,dat07_04);rm(dat07_01);rm(dat07_02);rm(dat07_03);rm(dat07_04)
@@ -126,21 +123,23 @@ index09<-index$yr2009;index10<-index$yr2010;index11<-index$yr2011;index12<-index
 index13<-index$yr2013;index14<-index$yr2014;index15<-index$yr2015;index16<-index$yr2016
 index17<-index$yr2017;index18<-index$yr2018;index19<-index$yr2019;index20<-index$yr2020
 
-dat06.r<-subset(dat06,측정소코드 %in% index06) %>% select(지역,측정소명,측정일시,O3)
-dat07.r<-subset(dat07,측정소코드 %in% index07) %>% select(지역,측정소명,측정일시,O3)
-dat08.r<-subset(dat08,측정소코드 %in% index08) %>% select(지역,측정소명,측정일시,O3)
-dat09.r<-subset(dat09,측정소코드 %in% index09) %>% select(지역,측정소명,측정일시,O3)
-dat10.r<-subset(dat10,측정소코드 %in% index10) %>% select(지역,측정소명,측정일시,O3)
-dat11.r<-subset(dat11,측정소코드 %in% index11) %>% select(지역,측정소명,측정일시,O3) 
-dat12.r<-subset(dat12,측정소코드 %in% index12) %>% select(지역,측정소명,측정일시,O3)
-dat13.r<-subset(dat13,측정소코드 %in% index13) %>% select(지역,측정소명,측정일시,O3)
-dat14.r<-subset(dat14,측정소코드 %in% index14) %>% select(지역,측정소명,측정일시,O3)
-dat15.r<-subset(dat15,측정소코드 %in% index15) %>% select(지역,측정소명,측정일시,O3)
-dat16.r<-subset(dat16,측정소코드 %in% index16) %>% select(지역,측정소명,측정일시,O3)
-dat17.r<-subset(dat17,측정소코드 %in% index17) %>% select(지역,측정소명,측정일시,O3)
-dat18.r<-subset(dat18,측정소코드 %in% index18) %>% select(지역,측정소명,측정일시,O3)
-dat19.r<-subset(dat19,측정소코드 %in% index19) %>% select(지역,측정소명,측정일시,O3)
-dat20.r<-subset(dat20,측정소코드 %in% index20) %>% select(지역,측정소명,측정일시,O3)
+
+
+dat06.r<-subset(dat06,측정소코드 %in% index06) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat07.r<-subset(dat07,측정소코드 %in% index07) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat08.r<-subset(dat08,측정소코드 %in% index08) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat09.r<-subset(dat09,측정소코드 %in% index09) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat10.r<-subset(dat10,측정소코드 %in% index10) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat11.r<-subset(dat11,측정소코드 %in% index11) %>% dplyr:: select(지역,측정소명,측정일시,O3) 
+dat12.r<-subset(dat12,측정소코드 %in% index12) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat13.r<-subset(dat13,측정소코드 %in% index13) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat14.r<-subset(dat14,측정소코드 %in% index14) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat15.r<-subset(dat15,측정소코드 %in% index15) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat16.r<-subset(dat16,측정소코드 %in% index16) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat17.r<-subset(dat17,측정소코드 %in% index17) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat18.r<-subset(dat18,측정소코드 %in% index18) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat19.r<-subset(dat19,측정소코드 %in% index18) %>% dplyr:: select(지역,측정소명,측정일시,O3)
+dat20.r<-subset(dat20,측정소코드 %in% index18) %>% dplyr:: select(지역,측정소명,측정일시,O3)
 
 dat06.r$city=substr(dat06.r$지역,1,2);dat07.r$city=substr(dat07.r$지역,1,2)
 dat08.r$city=substr(dat08.r$지역,1,2);dat09.r$city=substr(dat09.r$지역,1,2)
@@ -189,8 +188,8 @@ ozone_city<-function(text){
   s$date=ymd(substr(s$datetime,1,8))
   
   #각 구간별로 6시간 이상일 경우 유효 측정 자료로 간주 
-  s$ozone_8hours=apply(s %>% select(lag7:lag0),1,mean,na.rm=T)
-  s$n=apply(!is.na(s %>% select(lag7:lag0)),1,sum)
+  s$ozone_8hours=apply(s %>% dplyr::select(lag7:lag0),1,mean,na.rm=T)
+  s$n           =apply(!is.na(s %>% dplyr:: select(lag7:lag0)),1,sum)
   s$ozone_8hours=ifelse(s$n>=6,s$ozone_8hours,NA)
   
   s.df<-tibble(sqldf("select city,date, max(ozone_8hours) as ozone from s group by date"))
@@ -218,7 +217,7 @@ ozone_ss<-rbind(ozone_s1,ozone_s2,ozone_s3,ozone_s4,ozone_s5,ozone_s6,ozone_s7,
                 ozone_s8,ozone_s9,ozone_s10,ozone_s11,ozone_s12,ozone_s13,ozone_s14,
                 ozone_s15,ozone_s16,ozone_s17)
 
-# write.csv(ozone_ss,file="D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\ozone_hours_2006_2020.csv",row.names=F,na="")
+write.csv(ozone_ss,file="D:\\EUMC\\데이터관리\\Mornitoring_data\\Air_Korea_확정데이터\\ozone_hours_2006_2020.csv",row.names=F,na="")
 
 
 
